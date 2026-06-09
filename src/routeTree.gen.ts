@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhatAreAptamersRouteImport } from './routes/what-are-aptamers'
 import { Route as TechnologiesRouteImport } from './routes/technologies'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AptaIndexRouteImport } from './routes/apta-index'
@@ -26,11 +25,6 @@ const WhatAreAptamersRoute = WhatAreAptamersRouteImport.update({
 const TechnologiesRoute = TechnologiesRouteImport.update({
   id: '/technologies',
   path: '/technologies',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -65,7 +59,6 @@ export interface FileRoutesByFullPath {
   '/apta-index': typeof AptaIndexRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technologies': typeof TechnologiesRoute
   '/what-are-aptamers': typeof WhatAreAptamersRoute
 }
@@ -75,7 +68,6 @@ export interface FileRoutesByTo {
   '/apta-index': typeof AptaIndexRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technologies': typeof TechnologiesRoute
   '/what-are-aptamers': typeof WhatAreAptamersRoute
 }
@@ -86,7 +78,6 @@ export interface FileRoutesById {
   '/apta-index': typeof AptaIndexRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technologies': typeof TechnologiesRoute
   '/what-are-aptamers': typeof WhatAreAptamersRoute
 }
@@ -98,7 +89,6 @@ export interface FileRouteTypes {
     | '/apta-index'
     | '/contact'
     | '/services'
-    | '/sitemap.xml'
     | '/technologies'
     | '/what-are-aptamers'
   fileRoutesByTo: FileRoutesByTo
@@ -108,7 +98,6 @@ export interface FileRouteTypes {
     | '/apta-index'
     | '/contact'
     | '/services'
-    | '/sitemap.xml'
     | '/technologies'
     | '/what-are-aptamers'
   id:
@@ -118,7 +107,6 @@ export interface FileRouteTypes {
     | '/apta-index'
     | '/contact'
     | '/services'
-    | '/sitemap.xml'
     | '/technologies'
     | '/what-are-aptamers'
   fileRoutesById: FileRoutesById
@@ -129,7 +117,6 @@ export interface RootRouteChildren {
   AptaIndexRoute: typeof AptaIndexRoute
   ContactRoute: typeof ContactRoute
   ServicesRoute: typeof ServicesRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TechnologiesRoute: typeof TechnologiesRoute
   WhatAreAptamersRoute: typeof WhatAreAptamersRoute
 }
@@ -148,13 +135,6 @@ declare module '@tanstack/react-router' {
       path: '/technologies'
       fullPath: '/technologies'
       preLoaderRoute: typeof TechnologiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -201,20 +181,9 @@ const rootRouteChildren: RootRouteChildren = {
   AptaIndexRoute: AptaIndexRoute,
   ContactRoute: ContactRoute,
   ServicesRoute: ServicesRoute,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TechnologiesRoute: TechnologiesRoute,
   WhatAreAptamersRoute: WhatAreAptamersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
