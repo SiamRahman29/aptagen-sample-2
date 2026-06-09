@@ -51,7 +51,7 @@ function Technologies() {
           {techs.map((t, i) => (
             <Reveal key={t.id} delay={i * 80}>
               <a href={`#${t.id}`} className="group block surface-card rounded-2xl p-7 transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow-sm">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl" style={{ background: `${t.color.replace(")", " / 0.18)")}`, color: t.color }}>
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl text-foreground group-hover:text-accent transition-colors" style={{ background: `${t.color.replace(")", " / 0.18)")}` }}>
                   <t.icon className="h-6 w-6" />
                 </div>
                 <div className="mt-2 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">{t.tag}</div>
@@ -60,7 +60,7 @@ function Technologies() {
                   Click to explore the platform, performance benchmarks, and interactive demo.
                 </p>
                 <div className="mt-6 flex items-center justify-between">
-                  <span className="font-mono text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary">{t.kpi}</span>
+                  <span className="font-mono text-xs px-2.5 py-1 rounded-full bg-primary/10 text-foreground group-hover:text-accent transition-colors">{t.kpi}</span>
                   <ArrowRight className="h-4 w-4 text-primary transition-transform group-hover:translate-x-1" />
                 </div>
               </a>
@@ -81,7 +81,7 @@ function Technologies() {
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               {["Kd < 1 nM", "Sub-60s readout", "Multiplex up to 8 targets", "Reusable surface"].map((k) => (
-                <span key={k} className="rounded-full bg-primary/10 text-primary text-xs px-3 py-1.5">{k}</span>
+                <span key={k} className="rounded-full bg-primary/10 text-foreground hover:text-accent text-xs px-3 py-1.5 transition-colors">{k}</span>
               ))}
             </div>
           </Reveal>
