@@ -78,7 +78,7 @@ function Applications() {
                 className={`rounded-full px-4 py-2 text-sm transition border ${
                   tab === t
                     ? "bg-cyan-gradient text-primary-foreground border-transparent shadow-glow-sm"
-                    : "border-border bg-surface/50 text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                    : "border-border bg-surface/50 text-foreground hover:border-primary/40 hover:text-accent"
                 }`}
               >
                 {t}
