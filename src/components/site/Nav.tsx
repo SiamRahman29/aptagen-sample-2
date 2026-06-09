@@ -40,7 +40,7 @@ export function Nav() {
             <Link
               key={l.to}
               to={l.to}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+              className="text-sm text-foreground/60 transition-colors hover:text-primary relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full"
               activeProps={{ className: "text-foreground" }}
             >
               {l.label}
@@ -71,7 +71,7 @@ export function Nav() {
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
+                className="rounded-md px-3 py-2 text-sm text-foreground/60 hover:bg-secondary hover:text-primary"
               >
                 {l.label}
               </Link>
