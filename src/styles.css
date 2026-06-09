@@ -109,7 +109,7 @@
   background: var(--gradient-hero);
 }
 @utility bg-cyan-gradient {
-  background: var(--gradient-cyan);
+  background-image: var(--gradient-cyan);
 }
 @utility surface-card {
   background: var(--gradient-card);
