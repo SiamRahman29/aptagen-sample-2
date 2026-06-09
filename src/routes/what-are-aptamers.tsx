@@ -107,8 +107,8 @@ function WhatAreAptamers() {
               <div className="flex items-center justify-between flex-wrap gap-3">
                 <h3 className="font-display font-semibold">Aptamer–target binding</h3>
                 <div className="inline-flex rounded-full border border-border bg-background p-1 text-xs">
-                  <button onClick={() => setTab("a")} className={`px-3 py-1.5 rounded-full transition ${tab === "a" ? "bg-cyan-gradient text-primary-foreground" : "text-muted-foreground"}`}>DNA</button>
-                  <button onClick={() => setTab("b")} className={`px-3 py-1.5 rounded-full transition ${tab === "b" ? "bg-cyan-gradient text-primary-foreground" : "text-muted-foreground"}`}>RNA</button>
+                  <button onClick={() => setTab("a")} className={`px-3 py-1.5 rounded-full transition ${tab === "a" ? "bg-cyan-gradient text-primary-foreground" : "text-foreground/70 hover:text-accent"}`}>DNA</button>
+                  <button onClick={() => setTab("b")} className={`px-3 py-1.5 rounded-full transition ${tab === "b" ? "bg-cyan-gradient text-primary-foreground" : "text-foreground/70 hover:text-accent"}`}>RNA</button>
                 </div>
               </div>
               <div className="mt-6 relative aspect-square overflow-hidden rounded-xl bg-surface/60 border border-border">
