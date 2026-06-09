@@ -98,7 +98,7 @@ function Home() {
             {stats.map((s, i) => (
               <Reveal key={s.label} delay={i * 80}>
                 <div className="group surface-card rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow-sm">
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform group-hover:scale-110">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-foreground group-hover:text-primary transition-all group-hover:scale-110">
                     <s.icon className="h-5 w-5" />
                   </div>
                   <div className="mt-6 font-display text-4xl font-semibold text-foreground">
@@ -112,7 +112,7 @@ function Home() {
           {/* trust logos */}
           <div className="mt-16 grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-6 items-center opacity-60">
             {["NOVEX", "BIOGEN", "MERIDIAN", "PFAIR-LAB", "OXFORD-RX", "NEUROGEN"].map((n) => (
-              <div key={n} className="text-center font-display text-sm tracking-[0.3em] text-muted-foreground hover:text-primary transition-colors">
+              <div key={n} className="text-center font-display text-sm tracking-[0.3em] text-foreground/50 hover:text-accent transition-colors">
                 {n}
               </div>
             ))}
@@ -149,8 +149,8 @@ function Home() {
               <div className="flex items-center justify-between gap-4 flex-wrap">
                 <h3 className="font-display text-xl font-semibold">Aptamers vs Antibodies</h3>
                 <div className="inline-flex rounded-full border border-border bg-background p-1 text-xs">
-                  <button onClick={() => setView("detection")} className={`px-3 py-1.5 rounded-full transition ${view === "detection" ? "bg-cyan-gradient text-primary-foreground" : "text-muted-foreground"}`}>Detection</button>
-                  <button onClick={() => setView("delivery")} className={`px-3 py-1.5 rounded-full transition ${view === "delivery" ? "bg-cyan-gradient text-primary-foreground" : "text-muted-foreground"}`}>Drug Delivery</button>
+                  <button onClick={() => setView("detection")} className={`px-3 py-1.5 rounded-full transition ${view === "detection" ? "bg-cyan-gradient text-primary-foreground" : "text-foreground/70 hover:text-accent"}`}>Detection</button>
+                  <button onClick={() => setView("delivery")} className={`px-3 py-1.5 rounded-full transition ${view === "delivery" ? "bg-cyan-gradient text-primary-foreground" : "text-foreground/70 hover:text-accent"}`}>Drug Delivery</button>
                 </div>
               </div>
               <div className="mt-6 grid grid-cols-[1.4fr_1fr_1fr] gap-2 text-sm">
