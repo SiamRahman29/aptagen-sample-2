@@ -93,7 +93,7 @@ function AptaIndex() {
               <div className="text-xs font-mono uppercase text-muted-foreground tracking-wider">Target type</div>
               <div className="mt-3 flex flex-wrap gap-2">
                 {types.map((t) => (
-                  <button key={t} onClick={() => setType(t)} className={`text-xs rounded-full px-3 py-1.5 border transition ${type === t ? "bg-cyan-gradient text-primary-foreground border-transparent" : "border-border text-muted-foreground hover:border-primary/40"}`}>{t}</button>
+                  <button key={t} onClick={() => setType(t)} className={`text-xs rounded-full px-3 py-1.5 border transition ${type === t ? "bg-cyan-gradient text-primary-foreground border-transparent" : "border-border text-foreground hover:border-primary/40 hover:text-accent"}`}>{t}</button>
                 ))}
               </div>
             </div>
@@ -143,7 +143,7 @@ function AptaIndex() {
                   </div>
                   <div className="font-mono text-sm" style={{ color: kdColor(e.kd) }}>{e.kd}</div>
                   <div className="font-mono text-sm text-muted-foreground">{e.len} nt</div>
-                  <div className="hidden sm:block text-xs"><span className="rounded-full bg-primary/10 text-primary px-2 py-0.5">{e.status}</span></div>
+                  <div className="hidden sm:block text-xs"><span className="rounded-full bg-primary/10 text-foreground px-2 py-0.5 hover:text-accent transition-colors cursor-default">{e.status}</span></div>
                   <button
                     onClick={(ev) => { ev.stopPropagation(); setSaved((s) => s.includes(e.id) ? s : [...s, e.id]); }}
                     className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border hover:border-primary/50 hover:text-primary"
@@ -184,7 +184,7 @@ function AptaIndex() {
                 <h3 className="font-display text-2xl font-semibold mt-1">{selected.target}</h3>
                 <p className="text-sm text-muted-foreground">{selected.type} · {selected.app}</p>
               </div>
-              <button onClick={() => setSelected(null)} className="text-muted-foreground hover:text-foreground"><X className="h-5 w-5" /></button>
+              <button onClick={() => setSelected(null)} className="text-foreground/60 hover:text-primary"><X className="h-5 w-5" /></button>
             </div>
             <div className="mt-6 grid grid-cols-3 gap-3 text-center">
               <div className="rounded-xl bg-surface/60 p-3"><div className="text-xs text-muted-foreground">Kd</div><div className="font-display text-lg" style={{ color: kdColor(selected.kd) }}>{selected.kd} nM</div></div>
